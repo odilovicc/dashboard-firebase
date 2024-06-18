@@ -1,14 +1,16 @@
-import { createStore } from 'vuex'
+import {createStore} from 'vuex'
+import auth from './modules/auth'
+import profile from './modules/profile'
+import todo from './modules/todo';
+import expanse from './modules/expanse';
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+const store = createStore({
+    modules: {
+        auth,
+        profile,
+        todo,
+        expanse
+    }
 })
+
+export default store
