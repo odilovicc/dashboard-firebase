@@ -65,7 +65,7 @@ export default {
         const response = await deleteData(`/expanses/${payload.id}`);
         if (response.valid) {
           commit("DELETE_EXPANSE", payload.id);
-          await dispatch("expanses/getExpanses");
+          await dispatch("getExpanses");
         }
       } catch (e) {
         console.log(e);
@@ -88,10 +88,16 @@ export default {
       );
       return found ? found.id : null;
     },
-
     todaysExpanses: (state) => {
       const today = new Date().toLocaleDateString();
-      return state.expanses.filter((expanse) => expanse.date === today);
+      if(state.expanses.filter((expanse) => expanse.date === today).length > 0) {
+        return state.expanses.filter((expanse) => expanse.date === today);
+      } 
+      else {
+        return {
+          message: "NO_FOR_TODAY"
+        }
+      }
     },
     getTotalSum: (state) => {
       return state.expanses.reduce((acc, item) => acc + item.sum, 0);

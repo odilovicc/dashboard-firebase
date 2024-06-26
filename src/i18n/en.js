@@ -64,5 +64,6 @@ export default {
     ADD: "Add",
     ADDED: "Expanse has been added",
     TOTAL: "Total",
+    NO_FOR_TODAY: "No expanses for today",
   }
 };

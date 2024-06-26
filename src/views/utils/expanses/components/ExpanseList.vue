@@ -44,6 +44,7 @@ export default {
       this.$store.dispatch("expanse/deleteExpanse", {
         id: this.getExpanseKey(data),
       });
+      this.$store.dispatch('expanse/getExpanses')
     },
   },
   computed: {

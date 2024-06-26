@@ -8,7 +8,6 @@
     <divider class="mb-6"/>
     <router-view />
 
-    
   </div>
 </template>
 
