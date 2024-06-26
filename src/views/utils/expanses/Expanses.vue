@@ -6,7 +6,10 @@
     </div>
   </div>
 
-  <expanse-list :list="expanses"/>
+  <div v-if="filteredExpanses.length > 0">
+    <expanse-list :list="filteredExpanses"/>
+  </div>
+  <p v-else>{{ $t('EXPANSE_NO_AVAILABLE') }}</p>
 
 
   <Dialog
@@ -43,7 +46,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import ExpanseList from './components/ExpanseList.vue'
 
 export default {
@@ -66,12 +69,19 @@ export default {
   methods: {
     ...mapActions('expanse', ['addExpanse', 'getExpanses']),
     async addExpansee() {
-      await this.addExpanse({
+      try{
+        await this.addExpanse({
         type: this.selectedExpanseType.name,
         sum: this.expanseSum,
         howMany: this.expanseHMany,
         item: this.expanseItem,
       })
+      } catch(e) {
+        console.error(e)
+      } finally {
+        this.visible = false
+        this.clearInputs
+      }
     },
     clearInputs() {
       this.selectedExpanseType = ""
@@ -81,9 +91,11 @@ export default {
     }
   },
   computed: {
-    ...mapState('expanse', ['expanses'])
+    ...mapGetters('expanse', ['filteredExpanses'])
   },
-  mounted() {},
+  mounted() {
+    this.$store.dispatch("expanse/getExpanses")
+  },
 };
 </script>
 

@@ -16,6 +16,9 @@
 }
 
 @layer components {
+  .p-card {
+    @apply border
+  }
   .p-dialog {
     @apply min-w-[20rem];
 

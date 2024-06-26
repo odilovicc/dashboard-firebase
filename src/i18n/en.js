@@ -47,5 +47,14 @@ export default {
   EXPANSE_ITEM: "Item which is bought",
   EXPANSE_PTRANSPORT: "Public transport",
   EXPANSE_FOOD: "Food",
-  EXPANSE_HMANY: "How many"
+  EXPANSE_HMANY: "How many",
+  EXPANSE_DATE: "Date",
+  ACTIONS: "Actions",
+  EXPANSE_NO_AVAILABLE: "You haven't added expanse yet",
+  WIDGET: {
+    TIMER: "Timer",
+    START: "Start",
+    STOP: "Stop",
+    RESET: "Reset",
+  }
 };

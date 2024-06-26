@@ -17,6 +17,8 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
-
+<style>
+.p-card {
+    box-shadow: none !important;
+  }
 </style>

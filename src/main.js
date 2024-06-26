@@ -79,3 +79,6 @@ app.component("ConfirmDialog", ConfirmDialog);
 app.component("Textarea", Textarea);
 
 app.mount("#app");
+
+// TODOS
+    // TODO: Добавить что то в Home

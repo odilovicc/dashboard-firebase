@@ -3,12 +3,15 @@
     <Card>
       <template #content>
         <div class="flex items-center justify-between">
-          <Text version="small-heading">{{ $t('WELCOME', {name: user.displayName}) }}</Text>
-          <Button
-            icon="pi pi-bell"
-            :badge="todoList.length > 0 ? String(todoList.length) : null"
-            @click="toggle"
-          />
+          <Text version="small-heading">{{
+            $t("WELCOME", { name: user.displayName })
+          }}</Text>
+          <div class="relative">
+            <Button icon="pi pi-bell" @click="toggle" />
+            <span v-if="todoList.length > 0" class="text-white absolute -top-3 -right-4 p-0.5 px-2 rounded-full bg-red-500">{{
+              todoList.length
+            }}</span>
+          </div>
         </div>
       </template>
     </Card>
@@ -21,12 +24,12 @@
           @click.native="handleItemClick(item.name)"
         >
           <span class="pi pi-check-square" />
-          <span>{{ $t('UNDONE_TODO', {todo: item.name}) }}</span>
+          <span>{{ $t("UNDONE_TODO", { todo: item.name }) }}</span>
         </router-link>
         <p v-else>1</p>
       </template>
       <template #end v-else>
-        <p class="p-3">{{ $t('NO_NOTIF') }}</p>
+        <p class="p-3">{{ $t("NO_NOTIF") }}</p>
       </template>
     </TieredMenu>
   </div>

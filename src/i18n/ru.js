@@ -47,5 +47,14 @@ export default {
   EXPANSE_ITEM: "Вещь который был куплен",
   EXPANSE_PTRANSPORT: "Общественный транспорт",
   EXPANSE_FOOD: "Еда",
-  EXPANSE_HMANY: "Сколько штук"
+  EXPANSE_HMANY: "Сколько штук",
+  EXPANSE_DATE: "Дата",
+  ACTIONS: "Действия",
+  EXPANSE_NO_AVAILABLE: "Вы ещё не добавили расход",
+  WIDGET: {
+    TIMER: "Таймер",
+    START: "Старт",
+    STOP: "Стоп",
+    RESET: "Сброс"
+  }
 };
