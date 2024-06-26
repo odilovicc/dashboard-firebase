@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <Text v-if="list.length === 0">{{ $t("EXPANSES.NO_AVAILABLE") }}</Text>
+  <div v-else>
     <DataTable show-gridlines :value="list" tableStyle="min-width: 50rem">
       <Column field="type" :header="$t('EXPANSE_TYPE')"></Column>
       <Column field="howMany" :header="$t('EXPANSE_HMANY')"></Column>
@@ -18,6 +19,9 @@
         </template>
       </Column>
     </DataTable>
+    <Text version="small-heading" class="mt-6 text-right">
+      {{ `${$t("EXPANSES.TOTAL")}:` }} {{ getTotalSum }}
+    </Text>
   </div>
 </template>
 
@@ -43,7 +47,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("expanse", ["getExpanseKey"]),
+    ...mapGetters("expanse", ["getExpanseKey", "getTotalSum"]),
   },
   mounted() {},
 };

@@ -40,7 +40,7 @@ export default {
   CHANGE_LANG: "Сменить язык",
   NO_NOTIF: "У вас нет уведомлений",
   BOT: "Чат бот",
-  EXPANSES: 'Расходы',
+  EXPANSES: "Расходы",
   ADD_EXPANSE: "Добавить расход",
   EXPANSE_TYPE: "Тип расхода",
   EXPANSE_SUM: "Сумма расхода",
@@ -50,11 +50,19 @@ export default {
   EXPANSE_HMANY: "Сколько штук",
   EXPANSE_DATE: "Дата",
   ACTIONS: "Действия",
-  EXPANSE_NO_AVAILABLE: "Вы ещё не добавили расход",
   WIDGET: {
     TIMER: "Таймер",
     START: "Старт",
     STOP: "Стоп",
-    RESET: "Сброс"
-  }
+    RESET: "Сброс",
+  },
+  EXPANSES: {
+    NO_AVAILABLE: "Вы ещё не добавили расход",
+    EXPANSES: "Расходы",
+    TODAY: "Сегодняшние расходы",
+    ALL: "Все",
+    ADD: "Добавить",
+    ADDED: "Расход добавлен",
+    TOTAL: "Общая сумма",
+  },
 };

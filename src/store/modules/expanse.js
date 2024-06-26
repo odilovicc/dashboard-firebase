@@ -86,7 +86,18 @@ export default {
           e.item === expanse.item &&
           e.date === expanse.date
       );
-      return found ? found.id : null; // возвращает id если найден, иначе null
+      return found ? found.id : null;
+    },
+
+    todaysExpanses: (state) => {
+      const today = new Date().toLocaleDateString();
+      return state.expanses.filter((expanse) => expanse.date === today);
+    },
+    getTotalSum: (state) => {
+      return state.expanses.reduce((acc, item) => acc + item.sum, 0);
+    },
+    getAllExpanses: (state) => {
+      return state.expanses;
     },
   },
 };

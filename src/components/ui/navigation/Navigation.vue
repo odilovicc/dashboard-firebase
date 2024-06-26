@@ -40,9 +40,25 @@ export default {
           route: "/",
         },
         {
-          label: "EXPANSES",
+          label: "EXPANSES.EXPANSES",
           icon: "pi pi-bolt",
-          route: "/expanses",
+          items: [
+            {
+              label: "EXPANSES.TODAY",
+              icon: "pi pi-calendar",
+              route: "/expanses/today",
+            },
+            {
+              label: "EXPANSES.ALL",
+              icon: "pi pi-list",
+              route: "/expanses/all",
+            },
+            {
+              label: "EXPANSES.ADD",
+              icon: "pi pi-plus",
+              route: "/expanses/add",
+            },
+          ]
         },
         {
           label: "USERS",

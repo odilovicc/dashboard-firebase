@@ -50,11 +50,19 @@ export default {
   EXPANSE_HMANY: "How many",
   EXPANSE_DATE: "Date",
   ACTIONS: "Actions",
-  EXPANSE_NO_AVAILABLE: "You haven't added expanse yet",
   WIDGET: {
     TIMER: "Timer",
     START: "Start",
     STOP: "Stop",
     RESET: "Reset",
+  },
+  EXPANSES: {
+    NO_AVAILABLE: "You haven't added expanse yet",
+    TODAY: "Today's expanses",
+    ALL: "All",
+    EXPANSES: "Expanses",
+    ADD: "Add",
+    ADDED: "Expanse has been added",
+    TOTAL: "Total",
   }
 };

@@ -45,9 +45,26 @@ const routes = [
         component: () => import("@/views/utils/todo/Todo.vue")
       },
       {
-        path: 'expanses',
+        path: 'expanses/',
         name: 'expanses',
-        component: () => import('@/views/utils/expanses/Expanses.vue'),
+        component: () => import('@/layouts/expanses/layout.vue'),
+        children: [
+          {
+            path: 'today',
+            name: 'expanse-today',
+            component: () => import("@/views/utils/expanses/TodaysExpanses.vue")
+          },
+          {
+            path: 'all',
+            name: 'expanse-all',
+            component: () => import("@/views/utils/expanses/AllExpanses.vue")
+          },
+          {
+            path: 'add',
+            name: 'expanse-add',
+            component: () => import("@/views/utils/expanses/AddExpanse.vue")
+          },
+        ]
       }
     ],
   },

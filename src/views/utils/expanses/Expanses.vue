@@ -7,10 +7,9 @@
   </div>
 
   <div v-if="filteredExpanses.length > 0">
-    <expanse-list :list="filteredExpanses"/>
+    <expanse-list :list="filteredExpanses" />
   </div>
-  <p v-else>{{ $t('EXPANSE_NO_AVAILABLE') }}</p>
-
+  <p v-else>{{ $t("EXPANSE_NO_AVAILABLE") }}</p>
 
   <Dialog
     v-model:visible="visible"
@@ -31,11 +30,17 @@
         <field :label="$t('EXPANSE_SUM')">
           <input-number v-model="expanseSum" :placeholder="$t('EXPANSE_SUM')" />
         </field>
-        <field :label="$t('EXPANSE_ITEM')">
+        <field
+          :label="$t('EXPANSE_ITEM')"
+          v-if="selectedExpanseType.name !== $t('EXPANSE_PTRANSPORT')"
+        >
           <input-text v-model="expanseItem" :placeholder="$t('EXPANSE_ITEM')" />
         </field>
         <field :label="$t('EXPANSE_HMANY')">
-          <input-number v-model="expanseHMany" :placeholder="$t('EXPANSE_HMANY')" />
+          <input-number
+            v-model="expanseHMany"
+            :placeholder="$t('EXPANSE_HMANY')"
+          />
         </field>
       </form-container>
     </template>
@@ -46,13 +51,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex';
-import ExpanseList from './components/ExpanseList.vue'
+import { mapActions, mapGetters, mapState } from "vuex";
+import ExpanseList from "./components/ExpanseList.vue";
 
 export default {
   name: "ChatBot",
   props: {},
-  components: {ExpanseList},
+  components: { ExpanseList },
   data() {
     return {
       visible: false,
@@ -67,34 +72,46 @@ export default {
     };
   },
   methods: {
-    ...mapActions('expanse', ['addExpanse', 'getExpanses']),
+    ...mapActions("expanse", ["addExpanse", "getExpanses"]),
     async addExpansee() {
-      try{
-        await this.addExpanse({
-        type: this.selectedExpanseType.name,
-        sum: this.expanseSum,
-        howMany: this.expanseHMany,
-        item: this.expanseItem,
-      })
-      } catch(e) {
-        console.error(e)
+      try {
+        await this.addExpanse(this.expanseContent);
+      } catch (e) {
+        console.error(e);
       } finally {
-        this.visible = false
-        this.clearInputs
+        this.visible = false;
+        this.clearInputs;
       }
     },
     clearInputs() {
-      this.selectedExpanseType = ""
-      this.expanseHMany = null
-      this.expanseSum = null
-      this.expanseItem = ""
-    }
+      this.selectedExpanseType = "";
+      this.expanseHMany = null;
+      this.expanseSum = null;
+      this.expanseItem = "";
+    },
   },
   computed: {
-    ...mapGetters('expanse', ['filteredExpanses'])
+    ...mapGetters("expanse", ["filteredExpanses", 'todaysExpanses']),
+    expanseContent() {
+      if (this.selectedExpanseType.name === this.$t("EXPANSE_PTRANSPORT")) {
+        return {
+          type: this.selectedExpanseType.name,
+          sum: this.expanseSum,
+          howMany: this.expanseHMany,
+          item: "Билет",
+        };
+      } else {
+        return {
+          type: this.selectedExpanseType.name,
+          sum: this.expanseSum,
+          howMany: this.expanseHMany,
+          item: this.expanseItem,
+        };
+      }
+    },
   },
   mounted() {
-    this.$store.dispatch("expanse/getExpanses")
+    this.$store.dispatch("expanse/getExpanses");
   },
 };
 </script>

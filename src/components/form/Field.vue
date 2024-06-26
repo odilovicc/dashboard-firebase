@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2" v-bind="$attrs">
     <h1 class="font-medium">{{label}}</h1>
     <slot/>
   </div>

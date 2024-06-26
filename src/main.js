@@ -33,25 +33,26 @@ import TabPanel from "primevue/tabpanel";
 import VText from "@/components/ui/css-based/Text.vue";
 import BadgeDirective from "primevue/badgedirective";
 import TieredMenu from "primevue/tieredmenu";
-import Dropdown from 'primevue/dropdown';
+import Dropdown from "primevue/dropdown";
 import InputNumber from "primevue/inputnumber";
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import Divider from "primevue/divider";
 
 import firebasePlugin from "@/plugins/firebasePlugin";
-import VueScreen from 'vue-screen'
+import VueScreen from "vue-screen";
 
 const app = createApp(App);
 
 app.use(store);
 app.use(firebasePlugin);
-app.use(i18n)
+app.use(i18n);
 app.use(BadgeDirective);
 app.use(router);
 app.use(Primevue);
 app.use(ToastService);
 app.use(ConfirmationService);
-app.use(VueScreen)
+app.use(VueScreen);
 
 app.component("Accordion", Accordion);
 app.component("Column", Column);
@@ -63,6 +64,7 @@ app.component("Dialog", Dialog);
 app.component("InputText", InputText);
 app.component("TabView", TabView);
 app.component("TabPanel", TabPanel);
+app.component("Divider", Divider);
 app.component("ButtonGroup", ButtonGroup);
 app.component("Dropdown", Dropdown);
 app.component("FormContainer", FormContainer);
@@ -81,4 +83,4 @@ app.component("Textarea", Textarea);
 app.mount("#app");
 
 // TODOS
-    // TODO: Добавить что то в Home
+// TODO: Добавить что то в Home
