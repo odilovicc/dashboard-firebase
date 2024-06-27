@@ -1,6 +1,6 @@
 <template>
-  <Card class="md:min-w-[50rem] sm:min-w-max">
-    <template #title>{{ $t('LOG_IN') }}</template>
+  <Card class="md:min-w-[50rem] sm:min-w-max" v-motion-pop-visible>
+    <template #title>{{ $t("LOG_IN") }}</template>
     <template #content>
       <form-container>
         <field :label="$t('EMAIL')">
@@ -22,32 +22,34 @@
         </field>
         <p class="text-red-500" v-if="errorMessage">{{ errorMessage }}</p>
         <p>
-          {{ $t('DONT_REG') }}
+          {{ $t("DONT_REG") }}
           <router-link
             class="text-[--primary-color]"
-            :to="{name: 'register'}"
-          >{{$t('REG')}}</router-link>
+            :to="{ name: 'register' }"
+            >{{ $t("REG") }}</router-link
+          >
         </p>
       </form-container>
     </template>
     <template #footer>
-      <div class="flex items-center justify-between">
-        <button-group>
-          <Button
-            :disabled="loading"
-            :loading="loading"
-            :label="$t('LOG_IN')"
-            @click="login"
-          />
-          <Button
-            :disabled="loading"
-            :loading="loading"
-            outlined
-            :label="$t('LOG_GOOGLE')"
-            icon="pi pi-google"
-            @click="logGoogle"
-          />
-        </button-group>
+      <div class="flex items-center flex-col justify-between">
+        <Button
+          :disabled="loading"
+          :loading="loading"
+          :label="$t('LOG_IN')"
+          @click="login"
+          class="w-full"
+        />
+        <divider align="center">{{ $t("OR") }}</divider>
+        <Button
+          :disabled="loading"
+          :loading="loading"
+          outlined
+          :label="$t('LOG_GOOGLE')"
+          icon="pi pi-google"
+          @click="logGoogle"
+          class="w-full"
+        />
       </div>
     </template>
   </Card>

@@ -1,15 +1,14 @@
 <template>
   <div>
-    <Button
+    <button
       @click="toggle"
       text
       aria-haspopup="true"
       aria-controls="overlay_tmenu"
+      class="py-1 pb-0 px-3"
     >
-      <template #default>
         <Avatar shape="circle" :image="user.photoURL" />
-      </template>
-    </Button>
+    </button>
     <TieredMenu ref="menu" id="overlay_tmenu" popup :model="links">
       <template #start>
         <div class="px-4 py-3 pb-0 flex items-center gap-2">

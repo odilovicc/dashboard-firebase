@@ -17,7 +17,7 @@
 
 @layer components {
   .p-card {
-    @apply border
+    @apply border border-[--surface-border]
   }
   .p-dialog {
     @apply min-w-[20rem];

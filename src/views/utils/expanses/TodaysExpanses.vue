@@ -1,8 +1,5 @@
 <template>
-  <div v-if="todaysExpanses.message.length < 0">
-    <expanses-list :list="todaysExpanses" />
-  </div>
-  <p v-else>{{ $t(`EXPANSES.${todaysExpanses.message}`) }}. <Button class="p-0 m-0" link @click="$router.push({ name: 'expanse-add' })" :label="$t('EXPANSES.ADD')"/></p>
+  <expanses-list :list="todaysExpanses" :total-sum="getTotalSumTodaysExpanses"/>
 </template>
 
 <script>
@@ -17,7 +14,7 @@ export default {
   },
   methods: {},
   computed: {
-    ...mapGetters("expanse", ["todaysExpanses"]),
+    ...mapGetters("expanse", ["todaysExpanses", 'getTotalSumTodaysExpanses']),
   },
   mounted() {},
 };

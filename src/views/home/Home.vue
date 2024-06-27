@@ -1,22 +1,19 @@
 <template>
   <div>
     <home-card />
-    <div class="my-4 flex items-center">
-      <widget-timer class="[flex-grow: 1;] hover:[flex-grow: 3;]" />
-    </div>
+
+    <widget-container class="mt-4 md:mt-0"/>
   </div>
 </template>
 
 <script>
 import HomeCard from "./components/HomeCard.vue";
-import WidgetTimer from "./widgets/WidgetTimer.vue";
-
+import WidgetContainer from './components/WidgetContainer.vue'
 export default {
   name: "Home",
   components: {
     HomeCard,
-    WidgetTimer,
+    WidgetContainer
   },
 };
 </script>
-

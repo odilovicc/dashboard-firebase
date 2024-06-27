@@ -90,14 +90,12 @@ export default {
     },
     todaysExpanses: (state) => {
       const today = new Date().toLocaleDateString();
-      if(state.expanses.filter((expanse) => expanse.date === today).length > 0) {
-        return state.expanses.filter((expanse) => expanse.date === today);
-      } 
-      else {
-        return {
-          message: "NO_FOR_TODAY"
-        }
-      }
+      return state.expanses.filter((expanse) => expanse.date === today) || [];
+    },
+    getTotalSumTodaysExpanses: (state, getters) => {
+      const todaysExpanses = getters.todaysExpanses;
+      console.log('todaysExpanses:', todaysExpanses);
+      return todaysExpanses.reduce((acc, item) => acc + item.sum, 0);
     },
     getTotalSum: (state) => {
       return state.expanses.reduce((acc, item) => acc + item.sum, 0);

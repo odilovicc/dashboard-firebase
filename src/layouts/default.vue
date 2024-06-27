@@ -1,7 +1,7 @@
 <template>
   <navigation class="mb-6" @logOut="logOut"/>
   <div class="container px-5 md:px-0 mx-auto">
-    <router-view/>
+    <router-view v-motion-slide-bottom />
   </div>
 </template>
 

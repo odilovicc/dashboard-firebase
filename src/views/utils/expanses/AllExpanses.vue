@@ -1,6 +1,6 @@
 <template>
   <div>
-    <expanses-list :list="getAllExpanses" />
+    <expanses-list :list="getAllExpanses" :total-sum="getTotalSum"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   },
   methods: {},
   computed: {
-    ...mapGetters("expanse", ["getAllExpanses"]),
+    ...mapGetters("expanse", ["getAllExpanses", 'getTotalSum']),
   },
   mounted() {},
 };

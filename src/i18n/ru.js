@@ -7,6 +7,7 @@ export default {
   DONT_REG: "Не авторизованы?",
   REG: "Регистрация",
   LOG_GOOGLE: "Авторизация с Google",
+  REG_GOOGLE: "Регистрация с Google",
   USERNAME: "Логин",
   ALREADY_REG: "Уже зарегистрированы?",
   HOME: "Главная",
@@ -50,11 +51,13 @@ export default {
   EXPANSE_HMANY: "Сколько штук",
   EXPANSE_DATE: "Дата",
   ACTIONS: "Действия",
+  OR: "или",
   WIDGET: {
     TIMER: "Таймер",
     START: "Старт",
     STOP: "Стоп",
     RESET: "Сброс",
+    CALENDAR: "Календарь",
   },
   EXPANSES: {
     NO_AVAILABLE: "Вы ещё не добавили расход",

@@ -6,11 +6,12 @@ import store from "./store";
 import Primevue from "primevue/config";
 import ToastService from "primevue/toastservice";
 import ConfirmationService from "primevue/confirmationservice";
+import { MotionPlugin } from "@vueuse/motion";
 
 import i18n from "./i18n";
 
 import "@/assets/global.css";
-import "primevue/resources/themes/aura-light-green/theme.css";
+import "primevue/resources/themes/aura-dark-green/theme.css";
 
 import Accordion from "primevue/accordion";
 import AccordionTab from "primevue/accordiontab";
@@ -38,9 +39,13 @@ import InputNumber from "primevue/inputnumber";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Divider from "primevue/divider";
+import Widget from "@/views/home/components/Widget.vue";
 
 import firebasePlugin from "@/plugins/firebasePlugin";
 import VueScreen from "vue-screen";
+
+import { setupCalendar, Calendar, DatePicker } from "v-calendar";
+import "v-calendar/style.css";
 
 const app = createApp(App);
 
@@ -53,6 +58,7 @@ app.use(Primevue);
 app.use(ToastService);
 app.use(ConfirmationService);
 app.use(VueScreen);
+app.use(MotionPlugin)
 
 app.component("Accordion", Accordion);
 app.component("Column", Column);
@@ -62,6 +68,7 @@ app.component("AccordionTab", AccordionTab);
 app.component("InputNumber", InputNumber);
 app.component("Dialog", Dialog);
 app.component("InputText", InputText);
+app.component("Widget", Widget);
 app.component("TabView", TabView);
 app.component("TabPanel", TabPanel);
 app.component("Divider", Divider);
@@ -79,6 +86,13 @@ app.component("Message", Message);
 app.component("Avatar", Avatar);
 app.component("ConfirmDialog", ConfirmDialog);
 app.component("Textarea", Textarea);
+
+// Use plugin defaults (optional)
+app.use(setupCalendar, {});
+
+// Use the components
+app.component("VCalendar", Calendar);
+app.component("VDatePicker", DatePicker);
 
 app.mount("#app");
 

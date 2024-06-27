@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@vueuse/motion": "^2.2.3",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.2",
@@ -14,6 +16,7 @@
     "path-browserify": "^1.0.1",
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
+    "v-calendar": "^3.1.2",
     "vue": "^3.2.13",
     "vue-i18n": "^9.13.1",
     "vue-notion": "^3.0.0-beta.1",

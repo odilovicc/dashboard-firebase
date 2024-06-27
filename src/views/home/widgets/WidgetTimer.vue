@@ -1,32 +1,53 @@
 <template>
-  <div>
-    <Card>
-      <template #content>
-        <Text version="small-heading">{{ $t("WIDGET.TIMER") }}</Text>
-        <div class="py-3">
-          <p class="font-bold text-5xl text-">{{ formattedTimer }}</p>
+  <Widget>
+    <template #default>
+      <Text version="small-heading">{{ $t("WIDGET.TIMER") }}</Text>
+      <div class="py-3">
+        <p class="font-bold text-5xl text-">{{ formattedTimer }}</p>
 
-          <div class="flex items-center gap-5 mt-4">
-            <Button
-              @click="startTimer"
-              :label="$t('WIDGET.START')"
-              icon="pi pi-clock"
-            />
-            <Button
-              @click="stopTimer"
-              :label="$t('WIDGET.STOP')"
-              icon="pi pi-stop"
-            />
-            <Button
-              @click="resetTimer"
-              :label="$t('WIDGET.RESET')"
-              icon="pi pi-refresh"
-            />
-          </div>
+        <div class="flex items-center gap-5 mt-4">
+          <Button
+            @click="startTimer"
+            :label="$t('WIDGET.START')"
+            icon="pi pi-clock"
+          />
+          <Button
+            @click="stopTimer"
+            :label="$t('WIDGET.STOP')"
+            icon="pi pi-stop"
+          />
+          <Button
+            @click="resetTimer"
+            :label="$t('WIDGET.RESET')"
+            icon="pi pi-refresh"
+          />
         </div>
-      </template>
-    </Card>
-  </div>
+      </div>
+    </template>
+    <template #mobile>
+      <div class="py-3">
+        <p class="font-bold text-5xl text-">{{ formattedTimer }}</p>
+
+        <div class="flex items-center gap-5 mt-4">
+          <Button
+            @click="startTimer"
+            :label="$t('WIDGET.START')"
+            icon="pi pi-clock"
+          />
+          <Button
+            @click="stopTimer"
+            :label="$t('WIDGET.STOP')"
+            icon="pi pi-stop"
+          />
+          <Button
+            @click="resetTimer"
+            :label="$t('WIDGET.RESET')"
+            icon="pi pi-refresh"
+          />
+        </div>
+      </div>
+    </template>
+  </Widget>
 </template>
 
 <script>

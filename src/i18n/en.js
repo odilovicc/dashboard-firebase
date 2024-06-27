@@ -7,6 +7,7 @@ export default {
   DONT_REG: "Don't registered?",
   REG: "Register",
   LOG_GOOGLE: "Log in with Google",
+  REG_GOOGLE: "Register with Google",
   USERNAME: "Username",
   ALREADY_REG: "Already have account?",
   HOME: "Home",
@@ -50,11 +51,13 @@ export default {
   EXPANSE_HMANY: "How many",
   EXPANSE_DATE: "Date",
   ACTIONS: "Actions",
+  OR: "or",
   WIDGET: {
     TIMER: "Timer",
     START: "Start",
     STOP: "Stop",
     RESET: "Reset",
+    CALENDAR: "Calendar",
   },
   EXPANSES: {
     NO_AVAILABLE: "You haven't added expanse yet",
