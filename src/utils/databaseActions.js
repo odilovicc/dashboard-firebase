@@ -1,5 +1,13 @@
 // @/utils/databaseActions.js
-import { ref, set, get, child, update, remove } from "firebase/database";
+import {
+  ref,
+  set,
+  get,
+  child,
+  update,
+  remove,
+  getDatabase,
+} from "firebase/database";
 import { db } from "@/firebase";
 import { getAuth } from "firebase/auth";
 
@@ -77,4 +85,11 @@ export function updateData(to, payload) {
     .catch((error) => {
       return { valid: false, message: `An error occurred: ${error}` };
     });
+}
+
+export async function getUserRole(user) {
+  const db = getDatabase();
+  const userRef = ref(db, "users/" + user.uid);
+  const userSnapshot = await get(userRef);
+  return userSnapshot.exists() ? userSnapshot.val().role : null;
 }

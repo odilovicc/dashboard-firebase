@@ -1,14 +1,14 @@
-import Home from "@/views/home/Home.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "@/views/home/Home.vue";
 import Users from "@/views/Users.vue";
 import BaseLayout from "@/layouts/default.vue";
 import AuthLayout from "@/layouts/auth.vue";
 import Test from "@/views/test/Test.vue";
 import Login from "@/views/auth/Login.vue";
 import Register from "@/views/auth/Register.vue";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Profile from "@/views/Profile.vue";
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getDatabase, ref, get } from "firebase/database";
 
 const routes = [
   {
@@ -28,7 +28,9 @@ const routes = [
         path: "users",
         name: "users",
         component: Users,
+        meta: { role: "admin" }, // Доступ только для админа
       },
+
       {
         path: "test",
         name: "test",
@@ -42,30 +44,31 @@ const routes = [
       {
         path: "todo",
         name: "todo",
-        component: () => import("@/views/utils/todo/Todo.vue")
+        component: () => import("@/views/utils/todo/Todo.vue"),
       },
       {
-        path: 'expanses/',
-        name: 'expanses',
-        component: () => import('@/layouts/expanses/layout.vue'),
+        path: "expanses/",
+        name: "expanses",
+        component: () => import("@/layouts/expanses/layout.vue"),
         children: [
           {
-            path: 'today',
-            name: 'expanse-today',
-            component: () => import("@/views/utils/expanses/TodaysExpanses.vue")
+            path: "today",
+            name: "expanse-today",
+            component: () =>
+              import("@/views/utils/expanses/TodaysExpanses.vue"),
           },
           {
-            path: 'all',
-            name: 'expanse-all',
-            component: () => import("@/views/utils/expanses/AllExpanses.vue")
+            path: "all",
+            name: "expanse-all",
+            component: () => import("@/views/utils/expanses/AllExpanses.vue"),
           },
           {
-            path: 'add',
-            name: 'expanse-add',
-            component: () => import("@/views/utils/expanses/AddExpanse.vue")
+            path: "add",
+            name: "expanse-add",
+            component: () => import("@/views/utils/expanses/AddExpanse.vue"),
           },
-        ]
-      }
+        ],
+      },
     ],
   },
   {
@@ -108,14 +111,26 @@ const getUser = () => {
   });
 };
 
+const getUserRole = async (user) => {
+  if (!user) return null;
+  const db = getDatabase();
+  const userRef = ref(db, "users/" + user.uid);
+  const userSnapshot = await get(userRef);
+  return userSnapshot.exists() ? userSnapshot.val().role : null;
+};
+
 router.beforeEach(async (to, from, next) => {
   const user = await getUser();
+  const userRole = await getUserRole(user);
 
   if (to.matched.some((record) => record.meta.auth)) {
     if (user) {
-      next();
+      if (to.meta.role && to.meta.role !== userRole) {
+        next("/home");
+      } else {
+        next();
+      }
     } else {
-      alert("You don't have access");
       next("/auth/login");
     }
   } else {

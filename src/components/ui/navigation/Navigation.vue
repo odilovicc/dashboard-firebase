@@ -1,6 +1,6 @@
 <template>
   <div class="container py-2 mt-2 mx-auto">
-    <Menubar :model="items">
+    <Menubar :model="itemsByRole">
       <template #item="{ item, props, hasSubmenu }">
         <router-link
           v-if="item.route"
@@ -28,14 +28,14 @@
 
 <script>
 import ProfileDropdown from "@/components/ui/navigation/ProfileDropdown.vue";
-import Sidebar from "primevue/sidebar";
 
 export default {
-  components: { ProfileDropdown, Sidebar },
+  components: { ProfileDropdown },
   data() {
     return {
       visible: false,
-      items: [
+      role: null,
+      itemsByRole: [
         {
           label: "HOME",
           icon: "pi pi-home",
@@ -64,11 +64,6 @@ export default {
               route: "/expanses/all",
             },
           ],
-        },
-        {
-          label: "USERS",
-          icon: "pi pi-user",
-          route: "/users",
         },
         {
           label: "TODO",

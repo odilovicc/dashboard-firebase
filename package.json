@@ -22,6 +22,7 @@
     "vue-notion": "^3.0.0-beta.1",
     "vue-router": "^4.0.3",
     "vue-screen": "^2.4.0",
+    "vue-tg": "^0.6.1",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.0.0"
   },

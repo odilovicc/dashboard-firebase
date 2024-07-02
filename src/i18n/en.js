@@ -44,7 +44,7 @@ export default {
   EXPANSES: "Expanses",
   ADD_EXPANSE: "Add expanse",
   EXPANSE_TYPE: "Expanse type",
-  EXPANSE_SUM: 'Sum of expanse',
+  EXPANSE_SUM: "Sum of expanse",
   EXPANSE_ITEM: "Item which is bought",
   EXPANSE_PTRANSPORT: "Public transport",
   EXPANSE_FOOD: "Food",
@@ -68,5 +68,5 @@ export default {
     ADDED: "Expanse has been added",
     TOTAL: "Total",
     NO_FOR_TODAY: "No expanses for today",
-  }
+  },
 };

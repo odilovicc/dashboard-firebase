@@ -11,7 +11,7 @@ const store = createStore({
         profile,
         todo,
         expanse,
-        test
+        test,
     }
 })
 

@@ -40,6 +40,7 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Divider from "primevue/divider";
 import Widget from "@/views/home/components/Widget.vue";
+import Checkbox from "primevue/checkbox";
 
 import firebasePlugin from "@/plugins/firebasePlugin";
 import VueScreen from "vue-screen";
@@ -63,6 +64,7 @@ app.use(MotionPlugin)
 app.component("Accordion", Accordion);
 app.component("Column", Column);
 app.component("DataTable", DataTable);
+app.component("Checkbox", Checkbox);
 app.component("TieredMenu", TieredMenu);
 app.component("AccordionTab", AccordionTab);
 app.component("InputNumber", InputNumber);
