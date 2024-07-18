@@ -1,9 +1,4 @@
 @import "~primeicons/primeicons.css";
-
-* {
-  font-family: "Inter", sans-serif;
-}
-
 @layer tailwind-base, primevue, tailwind-utilities;
 
 @layer tailwind-base {
@@ -13,17 +8,4 @@
 @layer tailwind-utilities {
   @tailwind components;
   @tailwind utilities;
-}
-
-@layer components {
-  .p-card {
-    @apply border border-[--surface-border]
-  }
-  .p-dialog {
-    @apply min-w-[20rem];
-
-    @media (max-width: 640px) {
-      @apply w-[calc(100%-20rem)];
-    }
-  }
 }
