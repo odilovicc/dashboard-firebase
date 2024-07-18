@@ -1,16 +1,17 @@
-import {initializeApp} from "firebase/app";
-import {getDatabase} from "firebase/database";
-import {getAuth} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: process.env.VUE_APP_API_KEY,
-    authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-    databaseURL: process.env.VUE_APP_DATABASE_URL,
-    projectId: process.env.VUE_APP_PROJECT_ID,
-    storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
-    appId: process.env.VUE_APP_APP_ID,
-    measurementId: process.env.VUE_APP_MEASUREMENT_ID
+  apiKey: "AIzaSyDFFr6xiKV-l6pcR8G85sJZMOrZnaSZ_yA",
+  authDomain: "auth-jwt-80256.firebaseapp.com",
+  databaseURL:
+    "https://auth-jwt-80256-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "auth-jwt-80256",
+  storageBucket: "auth-jwt-80256.appspot.com",
+  messagingSenderId: "114539662508",
+  appId: "G-NSB2RF3V38",
+  measurementId: "6422524416:AAGQr48veM9k-JSGCBKDjCh6ZHCfGHdaBWI",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -18,4 +19,4 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const auth = getAuth(app);
 
-export {db, auth};
+export { db, auth };
